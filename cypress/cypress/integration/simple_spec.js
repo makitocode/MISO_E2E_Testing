@@ -51,15 +51,15 @@
 //         cy.contains(`Error: Ya existe un usuario registrado con el correo 'perez.pepito@uniandes.edu.co'`)
 //     })
 // })
-describe('Los estudiantes teacher search', function(){
-    it('Search teacher', function(){
-        cy.visit('https://losestudiantes.co')
-        cy.contains('Cerrar').click()
-        cy.get('.Select-placeholder').click().type('Dario')
-        // cy.get('.Select-input').click().find('input[role="combobox"]').type('Dario')
-        // cy.get('.is-open').find('input[role="combobox"]').click().type("Dario Correal")
-    })
-})
+// describe('Los estudiantes teacher search', function(){
+//     it('Search teacher', function(){
+//         cy.visit('https://losestudiantes.co')
+//         cy.contains('Cerrar').click()
+//         cy.get('.Select-placeholder').click().type('Dario')
+//         // cy.get('.Select-input').click().find('input[role="combobox"]').type('Dario')
+//         // cy.get('.is-open').find('input[role="combobox"]').click().type("Dario Correal")
+//     })
+// })
 describe('Los estudiantes teacher profile', function(){
     it('Search teacher', function(){
         cy.visit('https://losestudiantes.co')

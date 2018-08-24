@@ -67,3 +67,13 @@ describe('Los estudiantes teacher profile', function(){
         cy.get(':nth-child(1) > .profesor > a.jsx-633353764 > :nth-child(2)').click()
     })
 })
+
+describe('Los estudiantes teacher subject filter', function(){
+    it('Search teacher', function(){
+        cy.visit('https://losestudiantes.co')
+        cy.contains('Cerrar').click()
+        cy.get(':nth-child(1) > .profesor > a.jsx-633353764 > :nth-child(2)').click()
+        cy.get('.materias > :nth-child(1)').find('input[type="checkbox"]').check()
+        //cy.get('input.jsx-3367902293').check()
+    })
+})

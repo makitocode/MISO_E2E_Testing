@@ -30,5 +30,10 @@ export class TourOfHeroesPage {
   countSearchResult() {
     return element.all(by.className('search-result'));
   }
+  /* delete Hero */
+  deleteFirstHero() {
+    element(by.css('.heroes')).all(by.className('delete')).first().click();
+  }
+
 
 }

@@ -44,4 +44,19 @@ describe('Search Hero', () => {
     expect(2).toBe(count.then((n) => n));
   });
 });
+/* Test 2 - Eliminar un héroe */
+describe('Delete Hero', () => {
+  let page: TourOfHeroesPage;
+  beforeEach(() => {
+    page = new TourOfHeroesPage;
+    page.navigateTo();
+  });
+  it('Delete Hero', () => {
+    page.navigateToHeroes();
+    const currentHeroes = page.getAllHeroes().count();
+    page.deleteFirstHero();
+    expect(page.getAllHeroes().count().then(n => n)).toBe(currentHeroes.then(n => n - 1));
+  });
+
+});
 

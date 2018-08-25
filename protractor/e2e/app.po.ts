@@ -58,4 +58,11 @@ export class TourOfHeroesPage {
     return element(by.tagName('input')).getAttribute('ng-reflect-model');
   }
 
+  /* detail hero list with Name*/
+  detailHeroListWithName(keyword: string) {
+    element(by.cssContainingText('.badge', keyword)).click();
+    element(by.cssContainingText('button', 'View Details')).click();
+
+  }
+
 }

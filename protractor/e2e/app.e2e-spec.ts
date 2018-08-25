@@ -57,7 +57,6 @@ describe('Delete Hero', () => {
     page.deleteFirstHero();
     expect(page.getAllHeroes().count().then(n => n)).toBe(currentHeroes.then(n => n - 1));
   });
-
 });
 /*Test 3 - Editar un héroe */
 describe('EditHero', () => {
@@ -73,7 +72,6 @@ describe('EditHero', () => {
     const hero = page.getHeroName('M');
     expect(hero.getText().then(n => n)).toBe('Mr. Nice edited');
   });
-
 });
 
 /** Test 4 - Navegar a un héroe desde el dashboard */
@@ -88,7 +86,20 @@ describe('Go to Hero', () => {
     const value = page.getInputHeroNameValue();
     expect(value.then(n => n)).toBe('Mr. Nice');
   });
-
 });
 
+/* Test 5 - Navegar a un héroe desde la lista de héroes */
+describe('Navigate hero from list', () => {
+  let page: TourOfHeroesPage;
+  beforeEach(() => {
+    page = new TourOfHeroesPage;
+    page.navigateTo();
+  });
+  it('Navigate hero from list', () => {
+    page.navigateToHeroes();
+    page.detailHeroListWithName('11');
+    const value = page.getInputHeroNameValue();
+    expect(value.then(n => n)).toBe('Mr. Nice');
+  });
+});
 

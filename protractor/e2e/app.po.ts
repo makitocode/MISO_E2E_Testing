@@ -54,4 +54,8 @@ export class TourOfHeroesPage {
   getHeroName(keyword: string) {
     return element(by.cssContainingText('.module.hero', keyword));
   }
+  getInputHeroNameValue() {
+    return element(by.tagName('input')).getAttribute('ng-reflect-model');
+  }
+
 }

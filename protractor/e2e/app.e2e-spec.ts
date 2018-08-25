@@ -76,4 +76,19 @@ describe('EditHero', () => {
 
 });
 
+/** Test 4 - Navegar a un héroe desde el dashboard */
+describe('Go to Hero', () => {
+  let page: TourOfHeroesPage;
+  beforeEach(() => {
+    page = new TourOfHeroesPage;
+    page.navigateTo();
+  });
+  it('Go to Hero', () => {
+    page.heroName('Mr. Nice');
+    const value = page.getInputHeroNameValue();
+    expect(value.then(n => n)).toBe('Mr. Nice');
+  });
+
+});
+
 

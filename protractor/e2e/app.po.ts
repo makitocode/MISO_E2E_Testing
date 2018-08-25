@@ -62,7 +62,10 @@ export class TourOfHeroesPage {
   detailHeroListWithName(keyword: string) {
     element(by.cssContainingText('.badge', keyword)).click();
     element(by.cssContainingText('button', 'View Details')).click();
+  }
 
+  detailHeroSearchWithName(keyword: string) {
+    return element(by.cssContainingText('.search-result', keyword)).click();
   }
 
 }

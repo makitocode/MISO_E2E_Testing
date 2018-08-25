@@ -103,3 +103,19 @@ describe('Navigate hero from list', () => {
   });
 });
 
+/* Test 6 - Navegar a un héroe desde la búsqueda */
+describe('Goto hero from dashboard', () => {
+  let page: TourOfHeroesPage;
+  beforeEach(() => {
+    page = new TourOfHeroesPage;
+    page.goToDashboard();
+  });
+  it('Goto hero from dashboard', () => {
+    page.searchHero('Mr');
+    page.detailHeroSearchWithName('Mr');
+    const value = page.getInputHeroNameValue();
+    expect(value.then(n => n)).toBe('Mr. Nice');
+  });
+});
+
+

@@ -29,5 +29,19 @@ describe('Tour of heroes, heroes page', () => {
     page.enterNewHeroInInput('My new Hero');
     expect(page.getAllHeroes().count()).toBe(currentHeroes.then(n => n + 1));
   });
-
 });
+
+/* Test 1 - Buscar héroes */
+describe('Search Hero', () => {
+  let page: TourOfHeroesPage;
+  beforeEach(() => {
+    page = new TourOfHeroesPage;
+    page.goToDashboard();
+  });
+  it('Search Hero', () => {
+    page.searchHero('as');
+    const count = page.countSearchResult().count();
+    expect(2).toBe(count.then((n) => n));
+  });
+});
+

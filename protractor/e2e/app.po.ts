@@ -1,4 +1,4 @@
-import {browser, by, element, ElementFinder} from 'protractor';
+import {browser, by, element, ElementFinder, protractor} from 'protractor';
 
 export class TourOfHeroesPage {
   navigateTo() {
@@ -35,5 +35,23 @@ export class TourOfHeroesPage {
     element(by.css('.heroes')).all(by.className('delete')).first().click();
   }
 
-
+  /* Hero Name*/
+  heroName(keyword: string) {
+    element(by.cssContainingText('.module.hero', keyword)).click();
+  }
+  /* Update Hero name */
+  updateHeroName(keyword: string) {
+    element(by.tagName('input')).sendKeys(keyword);
+    element(by.cssContainingText('button', 'Save')).click();
+  }
+  /* wait*/
+  waitForElement(css: string) {
+    const EC = protractor.ExpectedConditions;
+    const elm = element(by.css(css));
+    browser.wait(EC.presenceOf(elm), 5000/*miliseconds*/);
+  }
+  /*Get hero name */
+  getHeroName(keyword: string) {
+    return element(by.cssContainingText('.module.hero', keyword));
+  }
 }

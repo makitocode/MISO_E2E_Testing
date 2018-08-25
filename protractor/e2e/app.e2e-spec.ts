@@ -59,4 +59,21 @@ describe('Delete Hero', () => {
   });
 
 });
+/*Test 3 - Editar un héroe */
+describe('EditHero', () => {
+  let page: TourOfHeroesPage;
+  beforeEach(() => {
+    page = new TourOfHeroesPage;
+    page.navigateTo();
+  });
+  it('EditHero', () => {
+    page.heroName('Mr. Nice');
+    page.updateHeroName(' edited');
+    page.waitForElement('.module.hero');
+    const hero = page.getHeroName('M');
+    expect(hero.getText().then(n => n)).toBe('Mr. Nice edited');
+  });
+
+});
+
 

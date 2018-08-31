@@ -1,5 +1,5 @@
 exports.config = {
-
+    
     //
     // ==================
     // Specify Test Files
@@ -45,7 +45,7 @@ exports.config = {
         maxInstances: 5,
         //
         browserName: 'chrome',
-        //Headless Test
+        //For HeadLessTest
         chromeOptions: {
             args: [ "--headless", "--disable-gpu", "--window-size=800,600" ]
           }
@@ -62,7 +62,7 @@ exports.config = {
     sync: true,
     //
     // Level of logging verbosity: silent | verbose | command | data | result | error
-    logLevel: 'silent',
+    logLevel: 'verbose',
     //
     // Enables colors for log output.
     coloredLogs: true,
@@ -84,7 +84,7 @@ exports.config = {
     baseUrl: 'http://localhost',
     //
     // Default timeout for all waitFor* commands.
-    waitforTimeout: 15000,
+    waitforTimeout: 10000,
     //
     // Default timeout in milliseconds for request
     // if Selenium Grid doesn't send response
@@ -115,7 +115,8 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    // services: [],//
+    services: ['selenium-standalone'],
+    //
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
     // see also: http://webdriver.io/guide/testrunner/frameworks.html
@@ -127,22 +128,23 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: http://webdriver.io/guide/reporters/dot.html
-    // reporters: ['dot'],
+    reporters: ['dot'],
+    
     //
     // Options to be passed to Jasmine.
     jasmineNodeOpts: {
         //
         // Jasmine default timeout
-        defaultTimeoutInterval: 20000,
+        defaultTimeoutInterval: 10000,
         //
         // The Jasmine framework allows interception of each assertion in order to log the state of the application
         // or website depending on the result. For example, it is pretty handy to take a screenshot every time
         // an assertion fails.
-        expectationResultHandler: function (passed, assertion) {
+        expectationResultHandler: function(passed, assertion) {
             // do something
         }
     },
-
+    
     //
     // =====
     // Hooks
@@ -182,7 +184,7 @@ exports.config = {
      */
     // beforeCommand: function (commandName, args) {
     // },
-
+    
     /**
      * Hook that gets executed before the suite starts
      * @param {Object} suite suite details
@@ -219,7 +221,7 @@ exports.config = {
      */
     // afterSuite: function (suite) {
     // },
-
+    
     /**
      * Runs after a WebdriverIO command gets executed
      * @param {String} commandName hook command name

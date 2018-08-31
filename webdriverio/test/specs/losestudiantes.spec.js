@@ -30,6 +30,8 @@ describe('Login los estudiantes ', function () {
         emailInput.keys('perez.pepito@uniandes.edu.co');
         var selectUniversidad = cajaSignUp.element('select[name="idUniversidad"]');
         selectUniversidad.selectByVisibleText("Universidad de los Andes");
+        var checkAceptar1 = cajaSignUp.element('input[type="checkbox"]');
+        checkAceptar1.click();
         var selectPrograma = cajaSignUp.element('select[name="idPrograma"]');
         selectPrograma.selectByVisibleText("Maestría en Ingeniería de Software");
         var checkAceptar = cajaSignUp.element('input[name="acepta"]');
